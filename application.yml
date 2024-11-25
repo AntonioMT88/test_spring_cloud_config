@@ -81,4 +81,4 @@ info:
     nome-app: "Base Microservices Project"
 
 # TEST
-message: "Messaggio da application.yml remoto"
+message: "Messaggio da application.yml remoto aggiornato"
