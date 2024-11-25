@@ -1,0 +1,84 @@
+application:
+  name: watchIt
+  version: 0.1
+---
+server:
+  port: 8080
+spring:
+  config:
+    activate:
+      on-profile: develop
+  data:
+    mongodb:
+      database: boilerplate
+      port: 27017
+      host: localhost
+      username: "admin"
+      password: "admin"
+  security:
+    jwt:
+      secret: 786nvc787eDcvscdfdr454bffdwgbhntgfe3f4p0kh8d
+      expiration: 36000000
+
+
+  # ==============================================================
+  # = Proprietà RabbitMQ
+  # ==============================================================
+  rabbitmq:
+    host: 172.20.51.55
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    queueName: boilerplate.queue
+    queueName2: boilerplate.queue2
+    exchangeName: boilerplate.exchange
+    routingKey: boilerplate.routingkey
+
+logging:
+  level:
+    root: info
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+springdoc:
+  api-docs:
+    enabled: true
+    path: "/swagger"
+  swagger-ui:
+    path: "/swagger-ui"
+appConfig:
+  security:
+    passwordExpirationCheckInterval: 20
+    jwtExpiration: 3600000
+    sessionDuration: 36000000
+    maxInactivity: 3600000
+
+# ==============================================================
+# = Actuator Parameters
+# ==============================================================
+management:
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,refresh,bus-refresh
+    jmx:
+      exposure:
+        include: health,info,metrics,refresh,bus-refresh
+# ==============================================================
+# = Actuator Info
+# ==============================================================
+info:
+  assistenza:
+    nome: "Antonio Montemurro"
+    mail: "antonio.montemurro@cyber-core.it"
+    telefono: "3807031370"
+    orario: "8:30 - 17:30"
+  nome:
+    nome-app: "Base Microservices Project"
+
+# TEST
+message: "Messaggio da application.yml remoto"
