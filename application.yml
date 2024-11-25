@@ -1,5 +1,5 @@
 application:
-  name: watchIt
+  name: cloud_config
   version: 0.1
 ---
 server:
